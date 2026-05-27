@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #07111f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 70% 20%, rgba(111, 183, 216, 0.16), transparent 34%),
+    radial-gradient(circle at 22% 70%, rgba(143, 214, 189, 0.1), transparent 28%);
+  background-size: 56px 56px, 56px 56px, 100% 100%, 100% 100%;
+}
+
+.content-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1.5rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color 300ms ease, background 300ms ease, transform 300ms ease;
+}
+
+.content-panel:hover {
+  border-color: rgba(111, 183, 216, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.premium-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 300ms ease, border-color 300ms ease, background 300ms ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(111, 183, 216, 0.32);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.nav-link {
+  position: relative;
+  flex: 0 0 auto;
+  padding-bottom: 0.25rem;
+  transition: color 240ms ease;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: #6fb7d8;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.primary-button,
+.secondary-button,
+.download-button {
+  display: inline-flex;
+  min-height: 2.875rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 260ms ease, background 260ms ease, border-color 260ms ease, color 260ms ease;
+}
+
+.primary-button,
+.download-button {
+  background: #e8eef6;
+  color: #07111f;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.download-button:hover {
+  transform: translateY(-2px);
+}
+
+.primary-button:hover,
+.download-button:hover {
+  background: #ffffff;
+}
+
+.secondary-button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e8eef6;
+}
+
+.secondary-button:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.download-button {
+  min-height: 3.25rem;
+  background: #07111f;
+  color: #ffffff;
+}
+
+.download-button:hover {
+  background: #0d2744;
+}
+
+.sector-row {
+  min-width: 680px;
+  transition: background 240ms ease;
+}
+
+.sector-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dashboard-tab {
+  display: block;
+  width: 100%;
+  border: 1px solid transparent;
+  padding: 0.75rem;
+  color: #a9b5c4;
+  text-align: left;
+  font-size: 0.875rem;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 240ms ease, background 240ms ease, color 240ms ease, transform 240ms ease;
+}
+
+.dashboard-tab:hover {
+  border-color: rgba(111, 183, 216, 0.24);
+  background: rgba(255, 255, 255, 0.055);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.dashboard-tab-active {
+  border-color: rgba(111, 183, 216, 0.42);
+  background: #6fb7d8;
+  color: #07111f;
+  font-weight: 700;
+}
+
+.dashboard-tab-active:hover {
+  background: #8fd6bd;
+  color: #07111f;
+}
+
+.fade-up {
+  animation: fade-up 720ms ease both;
+}
+
+.delay-soft {
+  animation-delay: 120ms;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 620ms ease, transform 620ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  html {
+    scroll-padding-top: 8.75rem;
+  }
+
+  .sector-row {
+    min-width: 620px;
+  }
+}
